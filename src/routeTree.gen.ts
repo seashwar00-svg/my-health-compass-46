@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AmbulanceRouteImport } from './routes/ambulance'
+import { Route as ChecklistRouteImport } from './routes/checklist'
+import { Route as DoctorsRouteImport } from './routes/doctors'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as SosRouteImport } from './routes/sos'
+import { Route as SymptomsRouteImport } from './routes/symptoms'
+import { Route as VitalsRouteImport } from './routes/vitals'
+import { Route as BookDoctorIdRouteImport } from './routes/book.$doctorId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AmbulanceRoute = AmbulanceRouteImport.update({
+  id: '/ambulance',
+  path: '/ambulance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChecklistRoute = ChecklistRouteImport.update({
+  id: '/checklist',
+  path: '/checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoctorsRoute = DoctorsRouteImport.update({
+  id: '/doctors',
+  path: '/doctors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SosRoute = SosRouteImport.update({
+  id: '/sos',
+  path: '/sos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SymptomsRoute = SymptomsRouteImport.update({
+  id: '/symptoms',
+  path: '/symptoms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VitalsRoute = VitalsRouteImport.update({
+  id: '/vitals',
+  path: '/vitals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDoctorIdRoute = BookDoctorIdRouteImport.update({
+  id: '/book/$doctorId',
+  path: '/book/$doctorId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ambulance': typeof AmbulanceRoute
+  '/checklist': typeof ChecklistRoute
+  '/doctors': typeof DoctorsRoute
+  '/home': typeof HomeRoute
+  '/sos': typeof SosRoute
+  '/symptoms': typeof SymptomsRoute
+  '/vitals': typeof VitalsRoute
+  '/book/$doctorId': typeof BookDoctorIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ambulance': typeof AmbulanceRoute
+  '/checklist': typeof ChecklistRoute
+  '/doctors': typeof DoctorsRoute
+  '/home': typeof HomeRoute
+  '/sos': typeof SosRoute
+  '/symptoms': typeof SymptomsRoute
+  '/vitals': typeof VitalsRoute
+  '/book/$doctorId': typeof BookDoctorIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ambulance': typeof AmbulanceRoute
+  '/checklist': typeof ChecklistRoute
+  '/doctors': typeof DoctorsRoute
+  '/home': typeof HomeRoute
+  '/sos': typeof SosRoute
+  '/symptoms': typeof SymptomsRoute
+  '/vitals': typeof VitalsRoute
+  '/book/$doctorId': typeof BookDoctorIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ambulance'
+    | '/checklist'
+    | '/doctors'
+    | '/home'
+    | '/sos'
+    | '/symptoms'
+    | '/vitals'
+    | '/book/$doctorId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ambulance'
+    | '/checklist'
+    | '/doctors'
+    | '/home'
+    | '/sos'
+    | '/symptoms'
+    | '/vitals'
+    | '/book/$doctorId'
+  id:
+    | '__root__'
+    | '/'
+    | '/ambulance'
+    | '/checklist'
+    | '/doctors'
+    | '/home'
+    | '/sos'
+    | '/symptoms'
+    | '/vitals'
+    | '/book/$doctorId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AmbulanceRoute: typeof AmbulanceRoute
+  ChecklistRoute: typeof ChecklistRoute
+  DoctorsRoute: typeof DoctorsRoute
+  HomeRoute: typeof HomeRoute
+  SosRoute: typeof SosRoute
+  SymptomsRoute: typeof SymptomsRoute
+  VitalsRoute: typeof VitalsRoute
+  BookDoctorIdRoute: typeof BookDoctorIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ambulance': {
+      id: '/ambulance'
+      path: '/ambulance'
+      fullPath: '/ambulance'
+      preLoaderRoute: typeof AmbulanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/checklist': {
+      id: '/checklist'
+      path: '/checklist'
+      fullPath: '/checklist'
+      preLoaderRoute: typeof ChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doctors': {
+      id: '/doctors'
+      path: '/doctors'
+      fullPath: '/doctors'
+      preLoaderRoute: typeof DoctorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sos': {
+      id: '/sos'
+      path: '/sos'
+      fullPath: '/sos'
+      preLoaderRoute: typeof SosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/symptoms': {
+      id: '/symptoms'
+      path: '/symptoms'
+      fullPath: '/symptoms'
+      preLoaderRoute: typeof SymptomsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vitals': {
+      id: '/vitals'
+      path: '/vitals'
+      fullPath: '/vitals'
+      preLoaderRoute: typeof VitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book/$doctorId': {
+      id: '/book/$doctorId'
+      path: '/book/$doctorId'
+      fullPath: '/book/$doctorId'
+      preLoaderRoute: typeof BookDoctorIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AmbulanceRoute: AmbulanceRoute,
+  ChecklistRoute: ChecklistRoute,
+  DoctorsRoute: DoctorsRoute,
+  HomeRoute: HomeRoute,
+  SosRoute: SosRoute,
+  SymptomsRoute: SymptomsRoute,
+  VitalsRoute: VitalsRoute,
+  BookDoctorIdRoute: BookDoctorIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
