@@ -44,7 +44,7 @@ function Book() {
         <div className="flex min-h-[80vh] flex-col items-center justify-center text-center">
           <CheckCircle2 className="h-20 w-20 text-success" />
           <h1 className="mt-4 text-2xl font-semibold">Appointment booked</h1>
-          <p className="mt-2 text-muted-foreground">{d.name} · {days[day].toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })} at {slot}</p>
+          <p className="mt-2 text-muted-foreground">{d.name} · {days[day]!.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" })} at {slot}</p>
           <Link to="/home" className="mt-8 w-full rounded-2xl bg-primary py-4 font-medium text-primary-foreground">Back to home</Link>
         </div>
       </Shell>
@@ -84,7 +84,7 @@ function Book() {
       <textarea value={reason} onChange={(e) => setReason(e.target.value)} rows={4} placeholder="Describe your symptoms & complaints" className="w-full resize-none rounded-2xl bg-card p-4 text-sm outline-none focus:ring-2 focus:ring-ring" />
       <button
         onClick={() => {
-          setAppts((a) => [...a, { doctor: d.name, date: days[day].toISOString(), slot, reason }]);
+          setAppts((a) => [...a, { doctor: d.name, date: days[day]!.toISOString(), slot, reason }]);
           setDone(true);
         }}
         className="mt-6 w-full rounded-2xl bg-primary py-4 font-medium text-primary-foreground"

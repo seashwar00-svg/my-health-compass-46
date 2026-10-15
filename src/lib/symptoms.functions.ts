@@ -11,7 +11,7 @@ export const checkSymptoms = createServerFn({ method: "POST" })
     return { messages: d.messages.map((m) => ({ role: m.role === "assistant" ? "assistant" : "user", content: String(m.content).slice(0, 4000) })) as Msg[] };
   })
   .handler(async ({ data }) => {
-    const key = process.env.LOVABLE_API_KEY;
+    const key = process.env['LOVABLE_API_KEY'];
     if (!key) return { error: "AI is not configured." };
     const res = await fetch("https://ai.gateway.lovable.dev/v1/responses", {
       method: "POST",
